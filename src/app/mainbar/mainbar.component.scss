@@ -1,1 +1,30 @@
 @import '../shared/styles/theme';
+
+:host {
+  display: flex;
+  flex-direction: row;
+  line-height: 150px;
+
+  .left-menu {
+    flex: 1;
+  }
+
+  .logo {
+    flex: 0 0 150px;
+    height: 150px;
+    margin: 0 -10px;
+    background: $logo no-repeat;
+    background-size: contain;
+    z-index: 10;
+  }
+
+  .right-menu {
+    flex: 1;
+  }
+}
+
+button {
+  width: calc(100% / 3);
+  font-size: 20px;
+  height: 40px;
+}
