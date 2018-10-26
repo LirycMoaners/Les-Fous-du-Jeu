@@ -2,17 +2,12 @@
 
 header {
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 5;
 }
 
 section {
-  position: relative;
-  top: 150px;
-}
-
-footer {
-  position: relative;
-  bottom: 0;
+  margin-top: 150px;
 }

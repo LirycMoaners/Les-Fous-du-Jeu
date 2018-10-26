@@ -10,6 +10,8 @@ import { AgendaComponent } from './home/agenda/agenda.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { ImageCarouselService } from './shared/image-carousel/image-carousel.service';
+import { ArticleService } from './shared/article/article.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,10 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    ImageCarouselService,
+    ArticleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
