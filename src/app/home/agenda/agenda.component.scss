@@ -1,0 +1,29 @@
+mat-card {
+  margin: 20px;
+
+  mat-card-title {
+    text-align: center;
+  }
+
+  .agenda-header {
+    display: flex;
+    flex-direction: row;
+
+    .month {
+      flex: 1;
+      text-transform: capitalize;
+    }
+
+    .month-buttons {
+      flex: 0 0 80px;
+    }
+  }
+
+  /deep/ .cal-month-view .cal-day-cell {
+    min-height: 0;
+
+    div {
+      min-height: 58px;
+    }
+  }
+}
