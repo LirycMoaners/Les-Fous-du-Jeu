@@ -1,0 +1,8 @@
+@import '../../shared/styles/theme';
+
+:host {
+  background-color: $other;
+  display: block;
+  padding: 20px;
+  color: $light-text;
+}
