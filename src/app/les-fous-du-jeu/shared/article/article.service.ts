@@ -11,8 +11,6 @@ export class ArticleService {
   ) { }
 
   getArticles(): Observable<Article[]> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-    return this.http.get<Article[]>('http://localhost/api/articles?_format=json', {headers});
+    return this.http.get<Article[]>('articles');
   }
 }

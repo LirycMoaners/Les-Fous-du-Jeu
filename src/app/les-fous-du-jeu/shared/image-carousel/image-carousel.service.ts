@@ -11,9 +11,6 @@ export class ImageCarouselService {
   ) { }
 
   getImagesCarousel(): Observable<ImageCarousel[]> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-    return this.http.get<ImageCarousel[]>('http://localhost/api/home-images?_format=json',
-      {headers});
+    return this.http.get<ImageCarousel[]>('home-images');
   }
 }

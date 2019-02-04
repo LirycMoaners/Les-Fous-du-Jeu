@@ -12,6 +12,9 @@ import { SharedModule } from '../shared/shared.module';
 import { ImageCarouselService } from './shared/image-carousel/image-carousel.service';
 import { ArticleService } from './shared/article/article.service';
 import { routedComponents, LesFousDuJeuRoutingModule } from './les-fous-du-jeu-routing.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LFDJHttpInterceptor } from './shared/interceptors/lfdj-http-interceptor';
+import { FestivalService } from './shared/festival/festival.service';
 
 @NgModule({
   declarations: [
@@ -31,8 +34,12 @@ import { routedComponents, LesFousDuJeuRoutingModule } from './les-fous-du-jeu-r
     SharedModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LFDJHttpInterceptor, multi: true
+    },
     ImageCarouselService,
-    ArticleService
+    ArticleService,
+    FestivalService
   ]
 })
 export class LesFousDuJeuModule { }
