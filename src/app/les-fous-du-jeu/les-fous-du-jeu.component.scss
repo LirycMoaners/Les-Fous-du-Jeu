@@ -1,13 +1,37 @@
 @import '../shared/styles/theme';
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-}
+mat-sidenav-container {
+  height: 100%;
 
-section {
-  margin-top: 150px;
+  mat-sidenav {
+    background-color: #fafafa;
+    padding: 10px;
+  }
+
+  mat-sidenav-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 5;
+    }
+
+    section {
+      margin-top: 150px;
+      flex: 1;
+
+      lfdj-agenda {
+        display: none;
+
+        @media only screen and (min-width : $break-medium) {
+          display: initial;
+        }
+      }
+    }
+  }
 }

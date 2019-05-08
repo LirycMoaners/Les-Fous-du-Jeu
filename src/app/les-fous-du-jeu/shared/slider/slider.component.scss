@@ -1,0 +1,70 @@
+@import '../../../shared/styles/theme';
+
+.background {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000066;
+
+  mat-card {
+    position: relative;
+    width: fit-content;
+    top: 10%;
+    height: 80%;
+    width: 80%;
+    background-color: #fafafa;
+    margin: auto;
+    text-align: center;
+    animation-duration: 1s;
+    animation-name: slidein;
+
+    @keyframes slidein {
+      from {
+        top: 50%;
+        height: 0;
+        width: 0;
+      }
+
+      to {
+        top: 10%;
+        height: 80%;
+        width: 80%;
+      }
+    }
+
+    img {
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      button {
+        position: absolute;
+        top: 0;
+        width: 80px;
+        height: 100%;
+        background-color: #353335;
+        font-size: 50px;
+        color: $accent;
+
+        &.previous {
+          left: 0;
+        }
+
+        &.next {
+          right: 0;
+        }
+      }
+    }
+  }
+}

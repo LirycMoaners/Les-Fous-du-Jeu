@@ -3,6 +3,7 @@ export interface Festival {
   title: string;
   mainImage: string;
   description: string;
+  publicationDate: Date;
   picturesSmall: string[];
   picturesLarge: string[];
 }

@@ -1,0 +1,40 @@
+<button mat-fab class="icon" (click)="close.emit()">
+  <mat-icon color="primary">menu</mat-icon>
+</button>
+
+<span class="mat-display-1">Les Fous du Jeu</span>
+
+<div class="buttons">
+  <button mat-stroked-button [routerLink]="['/home']" color="primary" (click)="close.emit()">Accueil</button>
+  <button mat-stroked-button [routerLink]="['/fests']" color="primary" (click)="close.emit()">Festivals</button>
+  <button mat-stroked-button [routerLink]="['/contests']" color="primary" (click)="close.emit()">Concours</button>
+  <button mat-stroked-button [routerLink]="['/gallery']" color="primary" (click)="close.emit()">Galerie</button>
+  <button mat-stroked-button [routerLink]="['/partners']" color="primary" (click)="close.emit()">Partenaires</button>
+  <button mat-stroked-button color="primary" (click)="close.emit()">Contact</button>
+</div>
+
+<div class="agenda">
+  <div class="agenda-header">
+    <span class="mat-h1 month">{{actualDate | date:'MMMM':null:'fr-FR'}}</span>
+    <span class="month-buttons">
+      <button mat-icon-button
+        mwlCalendarPreviousView
+        [(viewDate)]="actualDate"
+        view="month">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <button mat-icon-button
+        mwlCalendarNextView
+        [(viewDate)]="actualDate"
+        view="month">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </span>
+  </div>
+  <mwl-calendar-month-view
+    [viewDate]="actualDate"
+    locale="fr"
+    [weekStartsOn]="weekStartsOn"
+    [weekendDays]="weekendDays">>
+  </mwl-calendar-month-view>
+</div>

@@ -1,10 +1,32 @@
-<div class="fest-list-header">
-  <h1>
-    Festivals
-  </h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-</div>
-<mat-divider></mat-divider>
+<mat-card *ngIf="festivals[0]" class="fest-list-header">
+  <mat-card-header>
+    <div mat-card-avatar [style.background-image]="'url(' + apiDomain + festivals[0]?.mainImage + ')'"></div>
+    <mat-card-title>{{festivals[0]?.title}}</mat-card-title>
+    <mat-card-subtitle>{{festivals[0]?.publicationDate}}</mat-card-subtitle>
+  </mat-card-header>
+  <div class='picture-container'>
+    <img *ngFor="let picture of festivals[0]?.picturesSmall; let i = index" mat-card-image [src]="apiDomain + picture" (click)="slider.open(i)">
+  </div>
+  <mat-card-content>
+    <p>
+      {{festivals[0]?.description}}
+    </p>
+  </mat-card-content>
 
+  <lfdj-slider #slider [pictures]="festivals[0]?.picturesLarge"></lfdj-slider>
+</mat-card>
+
+<h1 class="mat-display-2">Les éditions précédentes</h1>
+
+<div *ngFor="let festival of festivals; let i = index" class="fest-list">
+  <mat-card *ngIf="i !== 0">
+    <mat-card-header>
+      <div mat-card-avatar [style.background-image]="'url(' + apiDomain + festival.mainImage + ')'"></div>
+      <mat-card-title>{{festival.title}}</mat-card-title>
+      <mat-card-subtitle>{{festival.publicationDate}}</mat-card-subtitle>
+      <mat-card-actions [style.float]="'right'">
+        <button mat-raised-button [routerLink]="['/fests/' + festival.id]">Voir</button>
+      </mat-card-actions>
+    </mat-card-header>
+  </mat-card>
+</div>

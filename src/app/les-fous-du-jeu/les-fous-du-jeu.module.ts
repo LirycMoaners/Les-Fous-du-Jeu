@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { ContactComponent } from './contact/contact.component';
 import { MainbarComponent } from './mainbar/mainbar.component';
-import { ArticleListComponent } from './home/article-list/article-list.component';
 import { AgendaComponent } from './home/agenda/agenda.component';
 import { FooterComponent } from './footer/footer.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
@@ -15,15 +14,18 @@ import { routedComponents, LesFousDuJeuRoutingModule } from './les-fous-du-jeu-r
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LFDJHttpInterceptor } from './shared/interceptors/lfdj-http-interceptor';
 import { FestivalService } from './shared/festival/festival.service';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { SliderComponent } from './shared/slider/slider.component';
 
 @NgModule({
   declarations: [
     ContactComponent,
     MainbarComponent,
-    ArticleListComponent,
+    SidebarComponent,
     AgendaComponent,
     FooterComponent,
-    routedComponents
+    routedComponents,
+    SliderComponent
   ],
   imports: [
     LesFousDuJeuRoutingModule,

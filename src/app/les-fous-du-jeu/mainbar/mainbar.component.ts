@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'lfdj-mainbar',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mainbar.component.scss']
 })
 export class MainbarComponent implements OnInit {
+  @Output() open: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() { }
 

@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .icon {
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    top: 0;
+    margin: 10px;
+  }
+
+  .mat-display-1 {
+    margin-bottom: 20px;
+    line-height: 56px;
+  }
+
+  .buttons {
+    flex: 1;
+
+    button {
+      display: block;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+
+  ::ng-deep .cal-month-view {
+    max-width: 315px;
+
+    .cal-day-cell, .cal-cell-top {
+      min-height: 70px;
+    }
+  }
+}

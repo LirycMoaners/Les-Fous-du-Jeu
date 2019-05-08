@@ -1,9 +1,18 @@
-<header>
-  <lfdj-mainbar></lfdj-mainbar>
-</header>
-<section>
-  <router-outlet></router-outlet>
-</section>
-<footer>
-  <lfdj-footer></lfdj-footer>
-</footer>
+<mat-sidenav-container (backdropClick)="sidenav.close()">
+  <mat-sidenav #sidenav disableClose>
+    <lfdj-sidebar (close)="sidenav.close()"></lfdj-sidebar>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <header>
+      <lfdj-mainbar (open)="sidenav.open()"></lfdj-mainbar>
+    </header>
+    <section>
+      <router-outlet></router-outlet>
+      <lfdj-agenda></lfdj-agenda>
+    </section>
+    <footer>
+      <lfdj-footer></lfdj-footer>
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

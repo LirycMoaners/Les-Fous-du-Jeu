@@ -1,3 +1,8 @@
-<p>
-  article works!
-</p>
+<ng-container *ngIf="apiDomain && article">
+  <img [src]="apiDomain + article.image">
+  <mat-card>
+    <mat-card-title>{{article.title}}</mat-card-title>
+    <mat-card-subtitle>{{article.publicationDate}}</mat-card-subtitle>
+    <mat-card-content [innerHTML]="article.fullDesc"></mat-card-content>
+  </mat-card>
+</ng-container>

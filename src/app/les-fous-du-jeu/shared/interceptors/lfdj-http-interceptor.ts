@@ -6,7 +6,7 @@ import { environment } from '../../../../environments/environment';
 @Injectable()
 export class LFDJHttpInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    req = Object.assign(req, new HttpRequest(<any>req.method, environment.apiUrl + req.url + '?_format=json'));
+    req = Object.assign(req, new HttpRequest(<any>req.method, environment.apiDomain + environment.apiPath + req.url));
     req.headers.set('Content-Type', 'application/json');
     return next.handle(req);
   }

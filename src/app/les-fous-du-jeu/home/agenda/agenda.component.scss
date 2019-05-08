@@ -1,5 +1,41 @@
-mat-card {
-  margin: 20px;
+.agenda-container {
+  position: fixed;
+  top: calc(50% - 300px);
+  right: -590px;
+  width: 680px;
+  display: flex;
+  transition: 1s right;
+
+  &.show-agenda {
+    right: 0;
+  }
+
+  .agenda-toggle {
+    flex: 0 0 80px;
+    margin: auto 0;
+    padding: 0;
+
+    button {
+      width: 80px;
+      height: 80px;
+
+      mat-icon {
+        font-size: 35px;
+        line-height: 35px;
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+
+  .agenda {
+    margin-left: 10px;
+    width: 600px;
+  }
+
+  mat-card {
+    box-sizing: border-box;
+  }
 
   mat-card-title {
     text-align: center;
@@ -18,12 +54,4 @@ mat-card {
       flex: 0 0 80px;
     }
   }
-
-  // /deep/ .cal-month-view .cal-day-cell {
-  //   min-height: 0;
-
-  //   div {
-  //     min-height: 58px;
-  //   }
-  // }
 }

@@ -1,1 +1,23 @@
 @import '../../../shared/styles/theme';
+
+mat-card {
+  margin: 10px;
+
+  div[mat-card-avatar] {
+    background-size: cover;
+  }
+}
+
+.picture-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 10px;
+
+  img {
+    height: 200px;
+    object-fit: cover;
+    margin: 0;
+    flex: 1;
+    min-width: 300px;
+  }
+}

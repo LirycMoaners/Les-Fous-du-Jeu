@@ -1,28 +1,35 @@
-<mat-card>
-  <mat-card-title>Agenda</mat-card-title>
-  <mat-card-content>
-    <div class="agenda-header">
-      <span class="mat-h1 month">{{actualDate | date:'MMMM':null:'fr-FR'}}</span>
-      <span class="month-buttons">
-        <button mat-icon-button
-          mwlCalendarPreviousView
-          [(viewDate)]="actualDate"
-          view="month">
-          <mat-icon>keyboard_arrow_left</mat-icon>
-        </button>
-        <button mat-icon-button
-          mwlCalendarNextView
-          [(viewDate)]="actualDate"
-          view="month">
-          <mat-icon>keyboard_arrow_right</mat-icon>
-        </button>
-      </span>
-    </div>
-    <mwl-calendar-month-view
-      [viewDate]="actualDate"
-      locale="fr"
-      [weekStartsOn]="weekStartsOn"
-      [weekendDays]="weekendDays">>
-    </mwl-calendar-month-view>
-  </mat-card-content>
-</mat-card>
+<div class="agenda-container" [class.show-agenda]="isAgendaVisible">
+  <mat-card class="agenda-toggle">
+    <button mat-icon-button (click)="switchAgendaVisibility()" color="primary">
+      <mat-icon matBadge="15" matBadgeColor="warn" aria-label="Agenda">calendar_today</mat-icon>
+    </button>
+  </mat-card>
+  <mat-card class="agenda">
+    <mat-card-title>Agenda</mat-card-title>
+    <mat-card-content>
+      <div class="agenda-header">
+        <span class="mat-h1 month">{{actualDate | date:'MMMM':null:'fr-FR'}}</span>
+        <span class="month-buttons">
+          <button mat-icon-button
+            mwlCalendarPreviousView
+            [(viewDate)]="actualDate"
+            view="month">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+          </button>
+          <button mat-icon-button
+            mwlCalendarNextView
+            [(viewDate)]="actualDate"
+            view="month">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </span>
+      </div>
+      <mwl-calendar-month-view
+        [viewDate]="actualDate"
+        locale="fr"
+        [weekStartsOn]="weekStartsOn"
+        [weekendDays]="weekendDays">>
+      </mwl-calendar-month-view>
+    </mat-card-content>
+  </mat-card>
+</div>

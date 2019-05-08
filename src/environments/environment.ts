@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost/Les-Fous-Du-Jeu-Drupal/api/'
+  apiDomain: 'http://localhost',
+  apiPath: '/Les-Fous-Du-Jeu-Drupal/api/'
 };
 
 /*

@@ -2,14 +2,36 @@
   <div *ngFor="let imageCarousel of imagesCarousel; let i = index"
     [class.visible]="i === imageCarouselIndex"
     class="image"
-    [style.background-image]="'url(http://localhost' + imageCarousel.pathMedium + ')'">
-    <button mat-icon-button>
-      <mat-icon color="accent">keyboard_arrow_down</mat-icon>
+    [style.background-image]="'url(' + apiDomain + imageCarousel.pathMedium + ')'"
+  >
+  </div>
+  <div class="buttons">
+    <button
+      *ngFor="let imageCarousel of imagesCarousel; let i = index"
+      mat-icon-button [class.selected]="i === imageCarouselIndex"
+      (click)="imageCarouselIndex = i"
+    >
+      °
     </button>
   </div>
 </div>
 
 <div class="content">
-  <lfdj-article-list [articles]="articles"></lfdj-article-list>
-  <lfdj-agenda></lfdj-agenda>
+    <h1 class="mat-display-2">Quoi de neuf chez les Fous ?</h1>
+
+    <div class="grid">
+      <mat-card *ngFor="let article of articles">
+        <img mat-card-image [src]="apiDomain + article.image">
+        <mat-card-title>{{article.title}}</mat-card-title>
+        <mat-card-subtitle>{{article.publicationDate}}</mat-card-subtitle>
+        <mat-card-content>
+          <p>
+            {{article.shortDesc | slice:0:300}}...
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button [routerLink]="['/articles/' + article.id]">Plus d'infos</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
 </div>

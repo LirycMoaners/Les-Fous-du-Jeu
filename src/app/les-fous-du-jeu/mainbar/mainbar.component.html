@@ -1,11 +1,21 @@
-<div class="left-menu">
-  <button mat-raised-button [routerLink]="['/home']" color="primary">Accueil</button>
-  <button mat-raised-button [routerLink]="['/fests']" color="accent">Festivals</button>
-  <button mat-raised-button [routerLink]="['/contests']" color="primary">Concours</button>
+<div class="top-menu">
+  <div class="left-menu">
+    <button mat-raised-button [routerLink]="['/home']" color="primary">Accueil</button>
+    <button mat-raised-button [routerLink]="['/fests']" color="accent">Festivals</button>
+    <button mat-raised-button [routerLink]="['/contests']" color="primary">Concours</button>
+  </div>
+  <div class="logo"></div>
+  <div class="right-menu">
+    <button mat-raised-button [routerLink]="['/gallery']" color="primary">Galerie</button>
+    <button mat-raised-button [routerLink]="['/partners']" color="accent">Partenaires</button>
+    <button mat-raised-button color="primary">Contact</button>
+  </div>
 </div>
-<div class="logo"></div>
-<div class="right-menu">
-  <button mat-raised-button [routerLink]="['/gallery']" color="primary">Galerie</button>
-  <button mat-raised-button [routerLink]="['/partners']" color="accent">Partenaires</button>
-  <button mat-raised-button color="primary">Contact</button>
+
+<div class="burger-menu">
+  <button mat-fab class="icon" (click)="open.emit()">
+    <mat-icon matBadge="15" matBadgeColor="warn" color="primary">menu</mat-icon>
+  </button>
+  <div class="mat-title">LES FOUS DU JEU</div>
+  <div class="logo"></div>
 </div>
