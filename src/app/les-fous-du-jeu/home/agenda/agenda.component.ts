@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
-import { DAYS_OF_WEEK } from 'angular-calendar';
+import { DAYS_OF_WEEK, CalendarEvent } from 'angular-calendar';
+import { CalendarEventService } from '../../shared/calendar-event/calendar-event.service';
 
 @Component({
   selector: 'lfdj-agenda',
@@ -12,12 +13,15 @@ export class AgendaComponent implements OnInit {
   weekendDays: number[] = [DAYS_OF_WEEK.FRIDAY, DAYS_OF_WEEK.SATURDAY];
   locale: string;
   isAgendaVisible = false;
+  calendarEvents: CalendarEvent[] = [];
 
   constructor(
-    private eRef: ElementRef
-    ) { }
+    private eRef: ElementRef,
+    private readonly calendarEventService: CalendarEventService
+  ) { }
 
   ngOnInit() {
+    this.calendarEventService.getCalendarEvents().subscribe(calendarEvents => this.calendarEvents = calendarEvents);
   }
 
   @HostListener('document:click', ['$event']) clickedOutside($event){

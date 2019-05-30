@@ -5,7 +5,10 @@
 export const environment = {
   production: false,
   apiDomain: 'http://localhost',
-  apiPath: '/Les-Fous-Du-Jeu-Drupal/api/'
+  apiPath: '/Les-Fous-Du-Jeu-Drupal/api/',
+  googleAPIURL: 'https://www.googleapis.com/calendar/v3/calendars/',
+  googleAPIKey: 'AIzaSyAQy8kDJKrsyct0g7YnUSbtrXbQN0nLcxQ',
+  googleCalendarID: '5lc6h8ltp9vla0b6llqmj4ss8s@group.calendar.google.com'
 };
 
 /*

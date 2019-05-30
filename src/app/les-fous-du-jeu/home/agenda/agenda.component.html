@@ -1,7 +1,7 @@
 <div class="agenda-container" [class.show-agenda]="isAgendaVisible">
   <mat-card class="agenda-toggle">
     <button mat-icon-button (click)="switchAgendaVisibility()" color="primary">
-      <mat-icon matBadge="15" matBadgeColor="warn" aria-label="Agenda">calendar_today</mat-icon>
+      <mat-icon [matBadge]="calendarEvents.length" matBadgeColor="warn" aria-label="Agenda">calendar_today</mat-icon>
     </button>
   </mat-card>
   <mat-card class="agenda">
@@ -28,8 +28,15 @@
         [viewDate]="actualDate"
         locale="fr"
         [weekStartsOn]="weekStartsOn"
-        [weekendDays]="weekendDays">>
+        [weekendDays]="weekendDays"
+        [events]="calendarEvents">
       </mwl-calendar-month-view>
+      <div class='calendar-events'>
+        <div class='calendar-event' *ngFor="let calendarEvent of calendarEvents">
+          <h3>{{ calendarEvent.allDay ? (calendarEvent.start | date:'dd/MM/yyyy') : (calendarEvent.start | date:'dd/MM/yyyy HH:mm') }}{{ !calendarEvent.allDay && calendarEvent.end ? ' - ' + (calendarEvent.end | date:'HH:mm') : '' }}</h3>
+          <span>{{ calendarEvent.title }}</span>
+        </div>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

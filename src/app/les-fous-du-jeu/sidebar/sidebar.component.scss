@@ -30,7 +30,29 @@
     max-width: 315px;
 
     .cal-day-cell, .cal-cell-top {
-      min-height: 70px;
+      min-height: 60px;
+      display: flex;
+      flex-direction: column-reverse;
+
+      .cal-day-badge {
+        margin-top: 4px;
+        margin-left: 9px;
+        margin-right: 9px;
+        margin-bottom: 12px;
+      }
+
+      .cal-day-number {
+        float: none;
+        flex: 1;
+      }
+    }
+
+    .cal-day-number, .cal-day-cell.cal-today .cal-day-number {
+      font-size: 1em;
+    }
+
+    .cal-events {
+      display: none;
     }
   }
 }
