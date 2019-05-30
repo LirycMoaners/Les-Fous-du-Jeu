@@ -5,4 +5,18 @@
   display: block;
   padding: 20px;
   color: $light-text;
+  text-align: center;
+
+  span {
+    font-style: italic;
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover {
+      color: $accent;
+    }
+  }
 }
