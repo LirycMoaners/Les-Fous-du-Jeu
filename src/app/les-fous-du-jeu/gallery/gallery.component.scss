@@ -1,1 +1,28 @@
 @import '../../shared/styles/theme';
+
+.pictures {
+  line-height: 0;
+  column-gap: 0;
+  column-count: 1;
+
+  @media (min-width: $break-medium) {
+    column-count: 2;
+  }
+  @media (min-width: $break-large) {
+    column-count: 3;
+  }
+
+  img {
+    background: white;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    box-shadow: 0 0 white;
+
+    &:hover {
+      transform: scale(1.03);
+      transition-duration: 0.5s;
+      box-shadow: 0 0 10px 5px white;
+    }
+  }
+}

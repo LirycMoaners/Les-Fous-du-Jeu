@@ -1,3 +1,5 @@
-<p>
-  gallery works!
-</p>
+<div *ngIf="pictures" class="pictures">
+  <img *ngFor="let picture of pictures; let i = index" [src]="apiDomain + picture.pictureSmall" (click)="slider.open(i)">
+
+  <lfdj-slider #slider [pictures]="picturesLarge"></lfdj-slider>
+</div>
