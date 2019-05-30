@@ -1,1 +1,64 @@
 @import '../../../shared/styles/theme';
+
+.head {
+  margin: 0 8% 40px;
+
+  .title {
+    text-align: center;
+
+    .mat-display-1 {
+      margin: 10px 0;
+    }
+  }
+
+  .prizes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    mat-card {
+      flex: 0 0 300px;
+      text-align: center;
+
+      ::ng-deep .mat-card-header-text {
+        margin: 0 auto;
+      }
+
+      img {
+        height: 300px;
+        object-fit: contain;
+      }
+    }
+  }
+
+  mat-card {
+    margin: 10px;
+  }
+}
+
+.pictures {
+  line-height: 0;
+  column-gap: 0;
+  column-count: 1;
+
+  @media (min-width: $break-medium) {
+    column-count: 2;
+  }
+  @media (min-width: $break-large) {
+    column-count: 3;
+  }
+
+  img {
+    background: white;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    box-shadow: 0 0 white;
+
+    &:hover {
+      transform: scale(1.03);
+      transition-duration: 0.5s;
+      box-shadow: 0 0 10px 5px white;
+    }
+  }
+}

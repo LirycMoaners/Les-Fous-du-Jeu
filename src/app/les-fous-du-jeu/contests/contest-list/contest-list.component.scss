@@ -1,1 +1,36 @@
 @import '../../../shared/styles/theme';
+
+.contests {
+  margin: 0 8%;
+
+  .mat-display-1 {
+    margin: 20px 10px;
+  }
+
+  .contest-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    mat-card {
+      flex: 0 0 300px;
+      margin: 0 20px;
+      text-align: center;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.03);
+        transition-duration: 1s;
+      }
+
+      ::ng-deep .mat-card-header-text {
+        margin: 0 auto;
+      }
+
+      img {
+        height: 300px;
+        object-fit: cover;
+      }
+    }
+  }
+}
