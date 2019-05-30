@@ -1,23 +1,58 @@
 @import '../../../shared/styles/theme';
 
-mat-card {
-  margin: 10px;
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 8% 40px;
 
-  div[mat-card-avatar] {
-    background-size: cover;
+  .main-image {
+    display: block;
+    margin: 10px;
+    flex: 0 0 500px;
+    object-fit: contain;
+  }
+
+  .description {
+    flex: 1 0 500px;
+    margin: 10px;
+    height: fit-content;
+
+    .mat-display-2 {
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    h2 {
+      text-align: right;
+    }
   }
 }
 
-.picture-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 10px;
+.pictures {
+  line-height: 0;
+  column-gap: 0;
+  column-count: 1;
+
+  @media (min-width: $break-medium) {
+    column-count: 2;
+  }
+  @media (min-width: $break-large) {
+    column-count: 3;
+  }
 
   img {
-    height: 200px;
-    object-fit: cover;
-    margin: 0;
-    flex: 1;
-    min-width: 300px;
+    background: white;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    box-shadow: 0 0 white;
+
+    &:hover {
+      transform: scale(1.03);
+      transition-duration: 0.5s;
+      box-shadow: 0 0 10px 5px white;
+    }
   }
 }

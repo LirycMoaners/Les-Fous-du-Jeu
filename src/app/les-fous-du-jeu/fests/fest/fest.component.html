@@ -1,19 +1,21 @@
 <ng-container *ngIf="festival">
-  <mat-card>
-    <mat-card-header>
-      <div mat-card-avatar [style.background-image]="'url(' + apiDomain + festival.mainImage + ')'"></div>
-      <mat-card-title>{{festival.title}}</mat-card-title>
-      <mat-card-subtitle>{{festival.publicationDate}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        {{festival.description}}
-      </p>
-    </mat-card-content>
-  </mat-card>
+  <div class="head">
+    <img class="main-image" [src]="apiDomain + festival.mainImage">
+    <div class="description">
+      <h1 class="mat-display-2">{{festival.title}}</h1>
+      <mat-card>
+        <mat-card-content>
+          <p>
+            {{festival.description}}
+          </p>
+          <h2 class="mat-subheading-1">{{festival.publicationDate}}</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 
-  <div class='picture-container'>
-    <img *ngFor="let picture of festival.picturesSmall; let i = index" mat-card-image [src]="apiDomain + picture" (click)="slider.open(i)">
+  <div class='pictures'>
+    <img *ngFor="let picture of festival.picturesSmall; let i = index" [src]="apiDomain + picture" (click)="slider.open(i)">
   </div>
 
   <lfdj-slider #slider [pictures]="festival.picturesLarge"></lfdj-slider>

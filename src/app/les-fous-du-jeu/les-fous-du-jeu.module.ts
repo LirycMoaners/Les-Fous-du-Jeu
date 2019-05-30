@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 
-import { ContactComponent } from './contact/contact.component';
 import { MainbarComponent } from './mainbar/mainbar.component';
 import { AgendaComponent } from './home/agenda/agenda.component';
 import { FooterComponent } from './footer/footer.component';
@@ -16,16 +15,21 @@ import { LFDJHttpInterceptor } from './shared/interceptors/lfdj-http-interceptor
 import { FestivalService } from './shared/festival/festival.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SliderComponent } from './shared/slider/slider.component';
+import { CalendarEventService } from './shared/calendar-event/calendar-event.service';
+import { ContactDialogComponent } from './shared/contact-dialog/contact-dialog.component';
+import { ImageGalleryService } from './shared/image-gallery/image-gallery.service';
+import { ContestService } from './shared/contest/contest.service';
+import { PrizeService } from './shared/contest/prize/prize.service';
 
 @NgModule({
   declarations: [
-    ContactComponent,
     MainbarComponent,
     SidebarComponent,
     AgendaComponent,
     FooterComponent,
     routedComponents,
-    SliderComponent
+    SliderComponent,
+    ContactDialogComponent
   ],
   imports: [
     LesFousDuJeuRoutingModule,
@@ -41,7 +45,11 @@ import { SliderComponent } from './shared/slider/slider.component';
     },
     ImageCarouselService,
     ArticleService,
-    FestivalService
+    FestivalService,
+    ContestService,
+    CalendarEventService,
+    ImageGalleryService,
+    PrizeService
   ]
 })
 export class LesFousDuJeuModule { }
