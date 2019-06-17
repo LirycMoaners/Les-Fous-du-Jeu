@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'lfdj-contact-dialog',
@@ -8,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 
 export class ContactDialogComponent implements OnInit {
   public isVisible = false;
+  public mailAddress: string;
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.mailAddress = environment.mailAddress;
+  }
 
   open() {
     this.isVisible = true;
@@ -19,5 +23,9 @@ export class ContactDialogComponent implements OnInit {
 
   close() {
     this.isVisible = false;
+  }
+
+  openFacebookPage() {
+    window.open(environment.facebookURL, '_blank');
   }
 }

@@ -1,3 +1,17 @@
-<p>
-  partners works!
-</p>
+<div class="partners">
+  <h1 class="mat-display-1">PARTENAIRES</h1>
+
+  <div class="partner-list">
+    <mat-card *ngFor="let partner of partners">
+      <mat-card-header>
+        <mat-card-title>{{partner.title}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="apiDomain + partner.logo">
+      <mat-card-content>
+        <p>{{partner.address}}</p>
+        <a [href]="partner.website">Site Web</a>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

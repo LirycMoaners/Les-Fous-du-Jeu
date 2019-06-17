@@ -20,6 +20,7 @@ import { ContactDialogComponent } from './shared/contact-dialog/contact-dialog.c
 import { ImageGalleryService } from './shared/image-gallery/image-gallery.service';
 import { ContestService } from './shared/contest/contest.service';
 import { PrizeService } from './shared/contest/prize/prize.service';
+import { PartnerService } from './shared/partner/partner.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { PrizeService } from './shared/contest/prize/prize.service';
     ContestService,
     CalendarEventService,
     ImageGalleryService,
-    PrizeService
+    PrizeService,
+    PartnerService
   ]
 })
 export class LesFousDuJeuModule { }

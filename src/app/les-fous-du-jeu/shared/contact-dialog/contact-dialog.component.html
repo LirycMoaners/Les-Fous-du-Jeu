@@ -2,10 +2,17 @@
   <mat-card>
     <mat-card-title>Contact</mat-card-title>
     <mat-card-content>
-      L'association des Fous du Jeu opère sur toute la métropole rouennaise.
-      Elle n'est pas subventionnée et ne possède pas de lieu fixe.
-      Vous pouvez nous contacter par mail via cette adresse : lesfousdujeu@gmail.com
-      <img src="../../../../assets/images/facebook.svg">
+      <p>
+        L'association des Fous du Jeu opère sur toute la métropole rouennaise.<br>
+        Elle n'est pas subventionnée et ne possède pas de lieu fixe.
+      </p>
+      <p>
+        Vous pouvez nous contacter par mail via cette adresse : <a [href]="'mailto:' + mailAddress">lesfousdujeu@gmail.com</a>
+      </p>
+
+      <button mat-raised-button (click)="openFacebookPage()">
+        <img src="../../../../assets/images/facebook.svg">
+      </button>
     </mat-card-content>
   </mat-card>
 </div>

@@ -1,1 +1,30 @@
 @import '../../shared/styles/theme';
+
+.partners {
+  margin: 0 8%;
+
+  .mat-display-1 {
+    margin: 20px 10px;
+  }
+
+  .partner-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    mat-card {
+      flex: 0 0 300px;
+      margin: 0 20px 20px;
+      text-align: center;
+
+      ::ng-deep .mat-card-header-text {
+        margin: 0 auto;
+      }
+
+      img {
+        height: 200px;
+        object-fit: contain;
+      }
+    }
+  }
+}

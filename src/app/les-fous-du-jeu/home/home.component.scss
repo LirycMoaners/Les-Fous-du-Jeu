@@ -4,11 +4,18 @@ $arrow-size: 60px;
 
 :host {
   display: block;
-  margin-top: -150px;
 
   .carousel {
     position: relative;
-    height: 100vh;
+    height: 50vh;
+
+    @media screen and (orientation:landscape) {
+      height: 100vh;
+    }
+
+    @media screen and (min-width: $break-medium) {
+      margin-top: -150px;
+    }
 
     .image {
       background-repeat: no-repeat;
