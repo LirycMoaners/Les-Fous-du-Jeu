@@ -1,4 +1,4 @@
 export class ImageGallery {
   pictureSmall: string;
-  pictureBig: string;
+  pictureLarge: string;
 }

@@ -2,7 +2,7 @@
   <div *ngFor="let imageCarousel of imagesCarousel; let i = index"
     [class.visible]="i === imageCarouselIndex"
     class="image"
-    [style.background-image]="'url(' + apiDomain + imageCarousel.pathMedium + ')'"
+    style.background-image="url({{ apiDomain + imageCarousel.pathMedium }})"
   >
   </div>
   <div class="buttons">

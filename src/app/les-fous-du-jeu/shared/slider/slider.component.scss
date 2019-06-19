@@ -20,6 +20,7 @@
     text-align: center;
     animation-duration: 1s;
     animation-name: slidein;
+    padding: 0;
 
     @keyframes slidein {
       from {
@@ -38,7 +39,7 @@
     img {
       height: 100%;
       max-width: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .overlay {

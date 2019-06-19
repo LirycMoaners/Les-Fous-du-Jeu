@@ -15,18 +15,17 @@ export class ContestService {
   getContests(): Observable<Contest[]> {
     return this.contests ? of(this.contests) : this.http.get<Contest[]>('contests')
       .pipe(
-        map((contests) => {
-          for (const contest of contests) {
-            contest.picturesSmall = (<string> <unknown> contest['picturesSmall']).split(', ');
-            contest.picturesLarge = (<string> <unknown> contest['picturesLarge']).split(', ');
-          }
-          return contests;
-        }),
         tap((contests) => this.contests = contests)
       );
   }
 
   getContest(id: string): Observable<Contest> {
-    return this.getContests().pipe(map(contests => contests.find(contest => contest.id === id)));
+    return this.http.get<Contest[]>('contests/' + id).pipe(
+      map((contests) => {
+        contests[0].picturesSmall = (<string> <unknown> contests[0]['picturesSmall']).split(', ');
+        contests[0].picturesLarge = (<string> <unknown> contests[0]['picturesLarge']).split(', ');
+        return contests[0];
+      })
+    );
   }
 }

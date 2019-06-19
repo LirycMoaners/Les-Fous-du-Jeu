@@ -17,6 +17,8 @@ export class ArticleService {
   }
 
   getArticle(id: string): Observable<Article> {
-    return this.getArticles().pipe(map(articles => articles.find(article => article.id === id)));
+    return this.http.get<Article[]>('articles/' + id).pipe(
+      map(articles => articles[0])
+    );
   }
 }

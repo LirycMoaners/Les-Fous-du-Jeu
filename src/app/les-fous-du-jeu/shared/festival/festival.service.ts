@@ -15,18 +15,17 @@ export class FestivalService {
   getFestivals(): Observable<Festival[]> {
     return this.festivals ? of(this.festivals) : this.http.get<Festival[]>('festivals')
       .pipe(
-        map((festivals) => {
-          for (const festival of festivals) {
-            festival.picturesSmall = (<string> <unknown> festival['picturesSmall']).split(', ');
-            festival.picturesLarge = (<string> <unknown> festival['picturesLarge']).split(', ');
-          }
-          return festivals;
-        }),
         tap((festivals) => this.festivals = festivals)
       );
   }
 
   getFestival(id: string): Observable<Festival> {
-    return this.getFestivals().pipe(map(festivals => festivals.find(festival => festival.id === id)));
+    return this.http.get<Festival[]>('festivals/' + id).pipe(
+      map((festivals) => {
+        festivals[0].picturesSmall = (<string> <unknown> festivals[0]['picturesSmall']).split(', ');
+        festivals[0].picturesLarge = (<string> <unknown> festivals[0]['picturesLarge']).split(', ');
+        return festivals[0];
+      })
+    );
   }
 }

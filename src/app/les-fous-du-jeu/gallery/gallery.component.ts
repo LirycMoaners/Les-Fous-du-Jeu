@@ -21,7 +21,7 @@ export class GalleryComponent implements OnInit {
     this.apiDomain = environment.apiDomain;
     this.imageGalleryService.getImagesGallery().subscribe(pictures => {
       this.pictures = pictures;
-      this.picturesLarge = this.pictures.map(picture => picture.pictureBig);
+      this.picturesLarge = this.pictures.map(picture => picture.pictureLarge);
     });
   }
 }
