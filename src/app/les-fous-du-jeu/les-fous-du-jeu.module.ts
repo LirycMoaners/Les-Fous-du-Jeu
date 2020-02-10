@@ -21,6 +21,7 @@ import { ImageGalleryService } from './shared/image-gallery/image-gallery.servic
 import { ContestService } from './shared/contest/contest.service';
 import { PrizeService } from './shared/contest/prize/prize.service';
 import { PartnerService } from './shared/partner/partner.service';
+import { ContentService } from './shared/content/content.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { PartnerService } from './shared/partner/partner.service';
     CalendarEventService,
     ImageGalleryService,
     PrizeService,
-    PartnerService
+    PartnerService,
+    ContentService
   ]
 })
 export class LesFousDuJeuModule { }

@@ -1,5 +1,13 @@
 import { NgModule } from '@angular/core';
-import { MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatDividerModule, MatBadgeModule, MatSidenavModule } from '@angular/material';
+import {
+  MatMenuModule,
+  MatButtonModule,
+  MatIconModule,
+  MatCardModule,
+  MatDividerModule,
+  MatBadgeModule,
+  MatSidenavModule
+} from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +20,8 @@ import { CommonModule } from '@angular/common';
     MatIconModule,
     MatCardModule,
     MatDividerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSidenavModule
   ],
   exports: [
     CommonModule,
