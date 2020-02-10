@@ -16,6 +16,7 @@ export class ContestComponent implements OnInit {
   public apiDomain: string;
   public contest: Contest;
   public prizes: Prize[];
+  public pictures: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -34,7 +35,10 @@ export class ContestComponent implements OnInit {
           this.contest = contest;
           return this.prizeService.getPrizes(this.contest.prizesId);
         })
-      ).subscribe(prizes => this.prizes = prizes);
+      ).subscribe(prizes => {
+        this.prizes = prizes;
+        this.pictures = [...this.prizes.map(prize => prize.pictureLarge), ...this.contest.picturesLarge];
+      });
     } else {
       this.router.navigate(['/home']);
     }

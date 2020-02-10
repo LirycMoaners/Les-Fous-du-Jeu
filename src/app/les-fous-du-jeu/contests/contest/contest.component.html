@@ -1,30 +1,30 @@
 <ng-container *ngIf="contest">
   <div class="head">
     <div class="title">
-      <h1 class="mat-display-1">{{contest.title}}</h1>
+      <h1 class="mat-display-1" [innerHTML]="contest.title"></h1>
       <h4 class="mat-subheading-2">{{contest.publicationDate}}</h4>
     </div>
 
     <div class="prizes">
-      <mat-card *ngFor="let prize of prizes">
+      <mat-card *ngFor="let prize of prizes; let i = index">
         <mat-card-header>
-          <mat-card-title>{{prize.title}}</mat-card-title>
-          <mat-card-subtitle>{{prize.participant}}</mat-card-subtitle>
+          <mat-card-title [innerHTML]="prize.title"></mat-card-title>
+          <mat-card-subtitle [innerHTML]="prize.participant"></mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="apiDomain + prize.picture">
+        <img mat-card-image [src]="apiDomain + prize.picture" (click)="slider.open(i)">
       </mat-card>
     </div>
 
     <mat-card>
       <mat-card-content>
-        <p innerHTML="{{contest.description}}"></p>
+        <p [innerHTML]="contest.description"></p>
       </mat-card-content>
     </mat-card>
   </div>
 
   <div class='pictures'>
-    <img *ngFor="let picture of contest.picturesSmall; let i = index" [src]="apiDomain + picture" (click)="slider.open(i)">
+    <img *ngFor="let picture of contest.picturesSmall; let i = index" [src]="apiDomain + picture" (click)="slider.open(i + prizes.length)">
   </div>
 
-  <lfdj-slider #slider [pictures]="contest.picturesLarge"></lfdj-slider>
+  <lfdj-slider #slider [pictures]="pictures"></lfdj-slider>
 </ng-container>

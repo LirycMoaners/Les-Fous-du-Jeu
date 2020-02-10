@@ -4,7 +4,7 @@
   <div class="fest-list">
     <mat-card *ngFor="let festival of festivals" [routerLink]="['/fests/' + festival.id]">
       <mat-card-header>
-        <mat-card-title>{{festival.title}}</mat-card-title>
+        <mat-card-title [innerHTML]="festival.title"></mat-card-title>
         <mat-card-subtitle>{{festival.publicationDate}}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image [src]="apiDomain + festival.mainImage">

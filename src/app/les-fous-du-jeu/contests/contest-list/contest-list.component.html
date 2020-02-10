@@ -4,7 +4,7 @@
   <div class="contest-list">
     <mat-card *ngFor="let contest of contests" [routerLink]="['/contests/' + contest.id]">
       <mat-card-header>
-        <mat-card-title>{{contest.title}}</mat-card-title>
+        <mat-card-title [innerHTML]="contest.title"></mat-card-title>
         <mat-card-subtitle>{{contest.publicationDate}}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image [src]="apiDomain + contest.mainImage">

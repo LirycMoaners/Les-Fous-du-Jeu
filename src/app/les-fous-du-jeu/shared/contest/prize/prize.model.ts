@@ -3,4 +3,5 @@ export class Prize {
   participant: string;
   picture: string;
   order: number;
+  pictureLarge: string;
 }

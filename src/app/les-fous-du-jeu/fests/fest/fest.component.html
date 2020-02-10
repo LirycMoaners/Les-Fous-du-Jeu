@@ -2,7 +2,7 @@
   <div class="head">
     <img class="main-image" [src]="apiDomain + festival.mainImage">
     <div class="description">
-      <h1 class="mat-display-2">{{festival.title}}</h1>
+      <h1 class="mat-display-2" [innerHTML]="festival.title"></h1>
       <mat-card>
         <mat-card-content>
           <p innerHTML="{{festival.description}}"></p>
