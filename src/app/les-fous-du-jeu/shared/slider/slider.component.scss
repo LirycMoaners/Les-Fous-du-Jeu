@@ -11,16 +11,19 @@
 
   mat-card {
     position: relative;
-    width: fit-content;
-    top: 10%;
-    height: 80%;
-    width: 80%;
-    background-color: #fafafa;
+    top: 2.5%;
+    height: 95%;
+    width: 95%;
     margin: auto;
+    background-color: #fafafa;
     text-align: center;
     animation-duration: 1s;
     animation-name: slidein;
     padding: 0;
+
+    .previous, .next {
+      display: none;
+    }
 
     @keyframes slidein {
       from {
@@ -30,9 +33,33 @@
       }
 
       to {
-        top: 10%;
-        height: 80%;
-        width: 80%;
+        top: 2.5%;
+        height: 95%;
+        width: 95%;
+      }
+    }
+
+    @media (min-width: $break-medium) {
+      top: 10%;
+      height: 80%;
+      width: 80%;
+
+      .previous, .next {
+        display: initial;
+      }
+
+      @keyframes slidein {
+        from {
+          top: 50%;
+          height: 0;
+          width: 0;
+        }
+
+        to {
+          top: 10%;
+          height: 80%;
+          width: 80%;
+        }
       }
     }
 
@@ -51,19 +78,32 @@
 
       button {
         position: absolute;
+        background-color: #353335;
+        color: $accent;
+      }
+
+      .previous, .next {
         top: 0;
         width: 80px;
         height: 100%;
-        background-color: #353335;
         font-size: 50px;
-        color: $accent;
+      }
 
-        &.previous {
-          left: 0;
-        }
+      .previous {
+        left: 0;
+      }
 
-        &.next {
-          right: 0;
+      .next {
+        right: 0;
+      }
+
+      .close {
+        display: initial;
+        bottom: 8%;
+        left: calc(50% - 23px);
+
+        @media (min-width: $break-medium) {
+          display: none;
         }
       }
     }
