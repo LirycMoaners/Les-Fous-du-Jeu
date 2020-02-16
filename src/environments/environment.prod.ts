@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiDomain: 'http://lesfousdujeu.com',
+  apiDomain: 'https://lesfousdujeu.com',
   apiPath: '/api/',
   googleAPIURL: 'https://www.googleapis.com/calendar/v3/calendars/',
   googleAPIKey: 'AIzaSyAQy8kDJKrsyct0g7YnUSbtrXbQN0nLcxQ',
