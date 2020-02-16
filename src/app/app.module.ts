@@ -7,6 +7,10 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 registerLocaleData(localeFr);
 
@@ -17,7 +21,10 @@ registerLocaleData(localeFr);
   imports: [
     AppRoutingModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CoreModule,
+    SharedModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   bootstrap: [AppComponent]
 })

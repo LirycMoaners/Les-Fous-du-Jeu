@@ -1,0 +1,19 @@
+<app-carousel></app-carousel>
+
+<div class="content">
+    <h1 class="mat-display-1">QUOI DE NEUF CHEZ LES FOUS ?</h1>
+
+    <div class="grid">
+      <mat-card *ngFor="let article of articles">
+        <img mat-card-image [src]="apiDomain + article.image">
+        <mat-card-title [innerHTML]="article.title"></mat-card-title>
+        <mat-card-subtitle>{{article.publicationDate}}</mat-card-subtitle>
+        <mat-card-content>
+          <p [innerHTML]="(article.shortDesc | slice:0:300) + '...'"></p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button [routerLink]="['/articles/' + article.id]">Plus d'infos</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+</div>

@@ -1,1 +1,18 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container (backdropClick)="sidenav.close()">
+  <mat-sidenav #sidenav disableClose>
+    <app-sidebar (closeSidebar)="sidenav.close()"></app-sidebar>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <header>
+      <app-header (openSidebar)="sidenav.open()"></app-header>
+    </header>
+    <section>
+      <router-outlet></router-outlet>
+      <app-agenda></app-agenda>
+    </section>
+    <footer>
+      <app-footer></app-footer>
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
