@@ -1,7 +1,7 @@
 {
   "name": "Les Fous du Jeu",
   "short_name": "lfdj",
-  "theme_color": "#1976d2",
+  "theme_color": "#9c27b0",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/lfdj/",
