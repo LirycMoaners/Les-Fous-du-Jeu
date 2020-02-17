@@ -1,11 +1,11 @@
 {
-  "name": "test",
-  "short_name": "test",
+  "name": "Les Fous du Jeu",
+  "short_name": "lfdj",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "/lfdj/",
+  "start_url": "/lfdj/articles/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
