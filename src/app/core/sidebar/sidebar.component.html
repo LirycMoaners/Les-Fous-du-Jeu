@@ -1,4 +1,4 @@
-<button mat-fab class="icon" (click)="closeSidebar.emit()">
+<button mat-fab aria-label="Menu" class="icon" (click)="closeSidebar.emit()">
   <mat-icon color="primary">menu</mat-icon>
 </button>
 
@@ -18,12 +18,14 @@
     <span class="mat-h1 month">{{actualDate | date:'MMMM':null:'fr-FR'}}</span>
     <span class="month-buttons">
       <button mat-icon-button
+        aria-label="Mois précédent"
         mwlCalendarPreviousView
         [(viewDate)]="actualDate"
         view="month">
         <mat-icon>keyboard_arrow_left</mat-icon>
       </button>
       <button mat-icon-button
+        aria-label="Mois suivant"
         mwlCalendarNextView
         [(viewDate)]="actualDate"
         view="month">

@@ -1,8 +1,8 @@
 <div *ngIf="isVisible" class="background" (click)="close()">
   <mat-card>
-    <img [src]="apiDomain + pictures[currentPictureIndex]">
+    <img [src]="apiDomain + pictures[currentPictureIndex]" alt="Image">
     <div class="overlay" (click)="changePicture($event, true)">
-      <button mat-fab class="close" (click)="close()"><mat-icon>close</mat-icon></button>
+      <button mat-fab aria-label="Fermer" class="close" (click)="close()"><mat-icon>close</mat-icon></button>
       <button mat-raised-button class="previous" (click)="changePicture($event, false)"><</button>
       <button mat-raised-button class="next" (click)="changePicture($event, true)">></button>
     </div>

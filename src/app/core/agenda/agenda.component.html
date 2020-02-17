@@ -1,6 +1,6 @@
 <div class="agenda-container" [class.show-agenda]="isAgendaVisible">
   <mat-card class="agenda-toggle">
-    <button mat-icon-button (click)="switchAgendaVisibility()" color="primary">
+    <button mat-icon-button aria-label="agenda" (click)="switchAgendaVisibility()" color="primary">
       <mat-icon [matBadge]="calendarEvents.length" matBadgeColor="warn" aria-label="Agenda">calendar_today</mat-icon>
     </button>
   </mat-card>
@@ -11,12 +11,14 @@
         <span class="mat-h1 month">{{actualDate | date:'MMMM':null:'fr-FR'}}</span>
         <span class="month-buttons">
           <button mat-icon-button
+            aria-label="Mois précédent"
             mwlCalendarPreviousView
             [(viewDate)]="actualDate"
             view="month">
             <mat-icon>keyboard_arrow_left</mat-icon>
           </button>
           <button mat-icon-button
+            aria-label="Mois suivant"
             mwlCalendarNextView
             [(viewDate)]="actualDate"
             view="month">
