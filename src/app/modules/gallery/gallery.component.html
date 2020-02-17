@@ -7,11 +7,11 @@
 </div>
 <mat-drawer-container autosize>
   <mat-drawer mode="side" opened>
-    <ng-container *ngIf="contents">
-      <h2>Événements</h2>
+    <h2>Événements</h2>
+    <div class="contents" *ngIf="contents">
       <h3 (click)="changeContentId(null)">Tout</h3>
       <h3 *ngFor="let content of contents" [innerHTML]="content.title" (click)="changeContentId(content.id)"></h3>
-    </ng-container>
+    </div>
   </mat-drawer>
   <mat-drawer-content>
     <ng-container *ngIf="pictures">

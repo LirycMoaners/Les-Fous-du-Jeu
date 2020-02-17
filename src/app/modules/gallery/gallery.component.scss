@@ -39,6 +39,15 @@
         padding-left: 20px;
         min-width: 250px;
       }
+
+      ::ng-deep.mat-drawer-inner-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contents {
+        overflow: auto;
+      }
     }
 
     .pictures {
