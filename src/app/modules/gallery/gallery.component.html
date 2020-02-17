@@ -16,7 +16,10 @@
   <mat-drawer-content>
     <ng-container *ngIf="pictures">
       <div class="pictures">
-        <img *ngFor="let picture of pictures; let i = index" [src]="apiDomain + picture.pictureSmall" (click)="slider.open(i)">
+        <img *ngFor="let picture of pictures; let i = index"
+          [src]="apiDomain + picture.pictureSmall"
+          alt="Une image de la galerie"
+          (click)="slider.open(i)">
       </div>
       <div class="paginator">
         <button mat-button *ngIf="filter$.value.pageNumber" (click)="changePageNumber(filter$.value.pageNumber - 1)">

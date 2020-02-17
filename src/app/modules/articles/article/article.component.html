@@ -1,5 +1,5 @@
 <ng-container *ngIf="apiDomain && article">
-  <img [src]="apiDomain + article.image" (click)="slider.open(0)">
+  <img [src]="apiDomain + article.image" alt="Image de l'article" (click)="slider.open(0)">
   <mat-card>
     <mat-card-title [innerHTML]="article.title"></mat-card-title>
     <mat-card-subtitle>{{article.publicationDate}}</mat-card-subtitle>

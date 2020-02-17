@@ -11,7 +11,7 @@
           <mat-card-title [innerHTML]="prize.title"></mat-card-title>
           <mat-card-subtitle [innerHTML]="prize.participant"></mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="apiDomain + prize.picture" (click)="slider.open(i)">
+        <img mat-card-image [src]="apiDomain + prize.picture" alt="Image de l'un des gagnants" (click)="slider.open(i)">
       </mat-card>
     </div>
 
@@ -23,7 +23,11 @@
   </div>
 
   <div class='pictures'>
-    <img *ngFor="let picture of contest.picturesSmall; let i = index" [src]="apiDomain + picture" (click)="slider.open(i + prizes.length)">
+    <img *ngFor="let picture of contest.picturesSmall; let i = index"
+      [src]="apiDomain + picture"
+      alt="Image du concours"
+      (click)="slider.open(i + prizes.length)"
+    >
   </div>
 
   <app-slider #slider [pictures]="pictures"></app-slider>

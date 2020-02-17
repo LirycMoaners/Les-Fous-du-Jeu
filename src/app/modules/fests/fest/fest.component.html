@@ -1,6 +1,6 @@
 <ng-container *ngIf="festival">
   <div class="head">
-    <img class="main-image" [src]="apiDomain + festival.mainImage">
+    <img class="main-image" [src]="apiDomain + festival.mainImage" alt="Affiche du festival">
     <div class="description">
       <h1 class="mat-display-2" [innerHTML]="festival.title"></h1>
       <mat-card>
@@ -13,7 +13,11 @@
   </div>
 
   <div class='pictures'>
-    <img *ngFor="let picture of festival.picturesSmall; let i = index" [src]="apiDomain + picture" (click)="slider.open(i)">
+    <img *ngFor="let picture of festival.picturesSmall; let i = index"
+      [src]="apiDomain + picture"
+      alt="Une photo du festival"
+      (click)="slider.open(i)"
+    >
   </div>
 
   <app-slider #slider [pictures]="festival.picturesLarge"></app-slider>
