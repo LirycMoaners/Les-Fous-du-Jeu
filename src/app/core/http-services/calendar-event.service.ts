@@ -37,7 +37,7 @@ export class CalendarEventService {
               : new Date(endDateString),
             title: item.summary,
             color: {primary: '#9c27b0', secondary: '#b2ff59'},
-            allDay: allDay
+            allDay
           });
         }
         return calendarEvents;

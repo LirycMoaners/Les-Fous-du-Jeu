@@ -22,8 +22,8 @@ export class ContestService {
   getContest(id: string): Observable<Contest> {
     return this.http.get<Contest[]>('contests/' + id).pipe(
       map((contests) => {
-        contests[0].picturesSmall = (<string> <unknown> contests[0]['picturesSmall']).split(', ');
-        contests[0].picturesLarge = (<string> <unknown> contests[0]['picturesLarge']).split(', ');
+        contests[0].picturesSmall = ((contests[0] as any).picturesSmall as string).split(', ');
+        contests[0].picturesLarge = ((contests[0] as any).picturesLarge as string).split(', ');
         return contests[0];
       })
     );

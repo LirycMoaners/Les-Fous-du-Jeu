@@ -24,7 +24,7 @@ export class AgendaComponent implements OnInit {
     this.calendarEventService.getCalendarEvents().subscribe(calendarEvents => this.calendarEvents = calendarEvents);
   }
 
-  @HostListener('document:click', ['$event']) clickedOutside($event){
+  @HostListener('document:click', ['$event']) clickedOutside(event: MouseEvent) {
     if (!this.eRef.nativeElement.contains(event.target)) {
       this.isAgendaVisible = false;
     }

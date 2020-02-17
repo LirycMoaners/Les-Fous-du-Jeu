@@ -22,8 +22,8 @@ export class FestivalService {
   getFestival(id: string): Observable<Festival> {
     return this.http.get<Festival[]>('festivals/' + id).pipe(
       map((festivals) => {
-        festivals[0].picturesSmall = (<string> <unknown> festivals[0]['picturesSmall']).split(', ');
-        festivals[0].picturesLarge = (<string> <unknown> festivals[0]['picturesLarge']).split(', ');
+        festivals[0].picturesSmall = ((festivals[0] as any).picturesSmall as string).split(', ');
+        festivals[0].picturesLarge = ((festivals[0] as any).picturesLarge as string).split(', ');
         return festivals[0];
       })
     );
