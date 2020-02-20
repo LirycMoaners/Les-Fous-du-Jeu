@@ -13,7 +13,7 @@
       <h3 *ngFor="let content of contents" [innerHTML]="content.title" (click)="changeContentId(content.id)"></h3>
     </div>
   </mat-drawer>
-  <mat-drawer-content>
+  <mat-drawer-content appGoTop>
     <ng-container *ngIf="pictures">
       <div class="pictures">
         <img *ngFor="let picture of pictures; let i = index"

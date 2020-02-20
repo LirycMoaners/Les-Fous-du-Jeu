@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import { ContactDialogComponent } from './components/contact-dialog/contact-dialog.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { RouterModule } from '@angular/router';
+import { GoTopComponent } from './components/go-top/go-top.component';
+import { GoTopDirective } from './directives/go-top.directive';
 
 @NgModule({
   imports: [
@@ -40,11 +42,17 @@ import { RouterModule } from '@angular/router';
     MatSidenavModule,
     MatDialogModule,
     ContactDialogComponent,
-    SliderComponent
+    SliderComponent,
+    GoTopDirective
   ],
   declarations: [
     ContactDialogComponent,
-    SliderComponent
+    SliderComponent,
+    GoTopComponent,
+    GoTopDirective
+  ],
+  entryComponents: [
+    GoTopComponent
   ]
 })
 export class SharedModule { }
