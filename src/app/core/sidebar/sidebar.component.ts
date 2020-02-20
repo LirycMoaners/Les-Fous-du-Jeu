@@ -1,6 +1,8 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { DAYS_OF_WEEK, CalendarEvent } from 'angular-calendar';
 import { CalendarEventService } from '../http-services/calendar-event.service';
+import { ContactDialogComponent } from 'src/app/shared/components/contact-dialog/contact-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,6 +11,7 @@ import { CalendarEventService } from '../http-services/calendar-event.service';
 })
 
 export class SidebarComponent implements OnInit {
+  @ViewChild('contact', {static: true}) contact: ContactDialogComponent;
   @Output() closeSidebar: EventEmitter<void> = new EventEmitter<void>();
   actualDate = new Date();
   weekStartsOn: number = DAYS_OF_WEEK.MONDAY;
@@ -17,7 +20,8 @@ export class SidebarComponent implements OnInit {
   calendarEvents: CalendarEvent[] = [];
 
   constructor(
-    private readonly calendarEventService: CalendarEventService
+    private readonly calendarEventService: CalendarEventService,
+    private readonly dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -26,5 +30,9 @@ export class SidebarComponent implements OnInit {
 
   changeMonth(isNext: boolean) {
     this.actualDate.setMonth(isNext ? this.actualDate.getMonth() + 1 : this.actualDate.getMonth() - 1);
+  }
+
+  openContact(): void {
+    this.dialog.open(ContactDialogComponent);
   }
 }

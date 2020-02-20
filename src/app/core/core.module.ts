@@ -18,6 +18,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FestivalService } from './http-services/festival.service';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { ContactDialogComponent } from '../shared/components/contact-dialog/contact-dialog.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     HeaderComponent,
     AgendaComponent,
     SidebarComponent
+  ],
+  entryComponents: [
+    ContactDialogComponent
   ],
   providers: [
     {

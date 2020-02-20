@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ContactDialogComponent } from './components/contact-dialog/contact-dialog.component';
@@ -23,7 +24,8 @@ import { RouterModule } from '@angular/router';
     MatCardModule,
     MatDividerModule,
     MatBadgeModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDialogModule
   ],
   exports: [
     CommonModule,
@@ -36,6 +38,7 @@ import { RouterModule } from '@angular/router';
     MatDividerModule,
     MatBadgeModule,
     MatSidenavModule,
+    MatDialogModule,
     ContactDialogComponent,
     SliderComponent
   ],

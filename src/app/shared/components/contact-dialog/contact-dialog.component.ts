@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-contact-dialog',
@@ -11,21 +12,15 @@ export class ContactDialogComponent implements OnInit {
   public isVisible = false;
   public mailAddress: string;
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<ContactDialogComponent>
+  ) { }
 
   ngOnInit() {
     this.mailAddress = environment.mailAddress;
   }
 
-  open() {
-    this.isVisible = true;
-  }
-
-  close() {
-    this.isVisible = false;
-  }
-
-  openFacebookPage() {
+  openFacebookPage(): void {
     window.open(environment.facebookURL, '_blank');
   }
 }
