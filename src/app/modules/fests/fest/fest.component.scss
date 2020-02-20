@@ -1,59 +1,92 @@
 @import '../../../shared/styles/theme';
 
-.head {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin: 0 8% 40px;
+:host {
+  display: block;
 
-  .main-image {
-    display: block;
-    margin: 10px;
-    flex: 0 0 500px;
-    object-fit: contain;
-    max-width: 500px;
+  @media only screen and (min-width : $break-medium) {
+    margin: -53px 0 0 0;
   }
 
-  .description {
-    flex: 1 0 500px;
-    margin: 10px;
-    height: fit-content;
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 10px;
 
-    .mat-display-2 {
-      margin: 40px 0;
-      text-align: center;
+    @media only screen and (min-width : $break-medium) {
+      margin: 0 0 40px;
     }
 
-    h2 {
-      text-align: right;
+    @media only screen and (min-width : $break-large) {
+      margin: 0 8% 40px;
+    }
+
+    .main-image {
+      display: block;
+      margin: 0 0 10px;
+      flex: 0 0 500px;
+      object-fit: contain;
+      max-width: 100%;
+
+      @media only screen and (min-width : $break-medium) {
+        max-width: 500px;
+      }
+    }
+
+    .description {
+      flex: 1;
+      margin: 10px;
+      height: fit-content;
+
+      @media only screen and (min-width : $break-large) {
+        flex: 1 0 450px;
+      }
+
+      .mat-display-2 {
+        text-align: center;
+        margin: 0 0 10px;
+      }
+
+      h4 {
+        text-align: center;
+        margin: 0;
+      }
+
+      mat-card {
+        margin: 10px 0 0;
+
+        @media only screen and (min-width : $break-large) {
+          margin: 40px 0 0;
+        }
+      }
     }
   }
-}
 
-.pictures {
-  line-height: 0;
-  column-gap: 0;
-  column-count: 1;
+  .pictures {
+    line-height: 0;
+    column-gap: 0;
+    column-count: 1;
 
-  @media (min-width: $break-medium) {
-    column-count: 2;
-  }
-  @media (min-width: $break-large) {
-    column-count: 3;
-  }
+    @media (min-width: $break-medium) {
+      column-count: 2;
+    }
+    @media (min-width: $break-large) {
+      column-count: 3;
+    }
 
-  img {
-    background: white;
-    width: 100%;
-    object-fit: cover;
-    cursor: pointer;
-    box-shadow: 0 0 white;
+    img {
+      background: white;
+      width: 100%;
+      object-fit: cover;
+      cursor: pointer;
+      box-shadow: 0 0 white;
 
-    &:hover {
-      transform: scale(1.03);
-      transition-duration: 0.5s;
-      box-shadow: 0 0 10px 5px white;
+      &:hover {
+        transform: scale(1.03);
+        transition-duration: 0.5s;
+        box-shadow: 0 0 10px 5px white;
+      }
     }
   }
 }

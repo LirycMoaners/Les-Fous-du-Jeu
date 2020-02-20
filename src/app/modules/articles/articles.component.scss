@@ -42,8 +42,10 @@
         flex-direction: column;
         background-color: $fade-accent;
 
-        &:nth-child(4n + 1) {
-          grid-row-end: span 2;
+        @media only screen and (min-width : $break-medium) {
+          &:nth-child(4n + 1) {
+            grid-row-end: span 2;
+          }
         }
 
         &:nth-child(2n + 1) {

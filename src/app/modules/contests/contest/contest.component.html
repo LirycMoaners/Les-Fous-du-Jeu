@@ -15,7 +15,7 @@
       </mat-card>
     </div>
 
-    <mat-card>
+    <mat-card *ngIf="contest.description">
       <mat-card-content>
         <p [innerHTML]="contest.description"></p>
       </mat-card-content>

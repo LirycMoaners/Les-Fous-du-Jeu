@@ -3,10 +3,10 @@
     <img class="main-image" [src]="apiDomain + festival.mainImage" alt="Affiche du festival">
     <div class="description">
       <h1 class="mat-display-2" [innerHTML]="festival.title"></h1>
-      <mat-card>
+      <h4 class="mat-subheading-1">{{festival.publicationDate}}</h4>
+      <mat-card *ngIf="festival.description">
         <mat-card-content>
           <p innerHTML="{{festival.description}}"></p>
-          <h2 class="mat-subheading-1">{{festival.publicationDate}}</h2>
         </mat-card-content>
       </mat-card>
     </div>
