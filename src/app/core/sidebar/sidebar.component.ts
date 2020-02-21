@@ -1,8 +1,9 @@
 import { Component, Output, EventEmitter, OnInit, ViewChild } from '@angular/core';
-import { DAYS_OF_WEEK, CalendarEvent } from 'angular-calendar';
+import { DAYS_OF_WEEK, CalendarEvent, CalendarMonthViewDay } from 'angular-calendar';
 import { CalendarEventService } from '../http-services/calendar-event.service';
 import { ContactDialogComponent } from 'src/app/shared/components/contact-dialog/contact-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { EventDialogComponent } from '../agenda/event-dialog/event-dialog.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -34,5 +35,15 @@ export class SidebarComponent implements OnInit {
 
   openContact(): void {
     this.dialog.open(ContactDialogComponent);
+  }
+
+  onClickEvent(event: CalendarEvent) {
+    this.dialog.open(EventDialogComponent, { maxWidth: 500, data: event });
+  }
+
+  onClickDay(day: CalendarMonthViewDay) {
+    if (day.events.length) {
+      this.onClickEvent(day.events[0]);
+    }
   }
 }

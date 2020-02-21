@@ -19,6 +19,7 @@ import { FestivalService } from './http-services/festival.service';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ContactDialogComponent } from '../shared/components/contact-dialog/contact-dialog.component';
+import { EventDialogComponent } from './agenda/event-dialog/event-dialog.component';
 
 @NgModule({
   imports: [
@@ -39,10 +40,12 @@ import { ContactDialogComponent } from '../shared/components/contact-dialog/cont
     FooterComponent,
     HeaderComponent,
     AgendaComponent,
-    SidebarComponent
+    SidebarComponent,
+    EventDialogComponent
   ],
   entryComponents: [
-    ContactDialogComponent
+    ContactDialogComponent,
+    EventDialogComponent
   ],
   providers: [
     {

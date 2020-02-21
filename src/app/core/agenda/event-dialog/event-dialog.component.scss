@@ -1,0 +1,16 @@
+.mat-dialog-content {
+  display: flex;
+
+  .description {
+    flex: 2;
+    margin-right: 20px;
+  }
+
+  .address {
+    flex: 1;
+  }
+}
+
+button {
+  flex: 1;
+}

@@ -38,6 +38,8 @@
     locale="fr"
     [weekStartsOn]="weekStartsOn"
     [weekendDays]="weekendDays"
-    [events]="calendarEvents">
+    [events]="calendarEvents"
+    (eventClicked)="onClickEvent($event.event)"
+    (dayClicked)="onClickDay($event.day)">
   </mwl-calendar-month-view>
 </div>

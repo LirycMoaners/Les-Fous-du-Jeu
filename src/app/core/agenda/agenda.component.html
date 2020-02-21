@@ -5,7 +5,6 @@
     </button>
   </mat-card>
   <mat-card class="agenda">
-    <mat-card-title>Agenda</mat-card-title>
     <mat-card-content>
       <div class="agenda-header">
         <span class="mat-h1 month">{{actualDate | date:'MMMM':null:'fr-FR'}}</span>
@@ -31,10 +30,12 @@
         locale="fr"
         [weekStartsOn]="weekStartsOn"
         [weekendDays]="weekendDays"
-        [events]="calendarEvents">
+        [events]="calendarEvents"
+        (eventClicked)="onClickEvent($event.event)"
+        (dayClicked)="onClickDay($event.day)">
       </mwl-calendar-month-view>
       <div class='calendar-events'>
-        <div class='calendar-event' *ngFor="let calendarEvent of calendarEvents">
+        <div class='calendar-event' *ngFor="let calendarEvent of calendarEvents" (click)="onClickEvent(calendarEvent)">
           <h3>{{ calendarEvent.allDay ? (calendarEvent.start | date:'dd/MM/yyyy') : (calendarEvent.start | date:'dd/MM/yyyy HH:mm') }}{{ !calendarEvent.allDay && calendarEvent.end ? ' - ' + (calendarEvent.end | date:'HH:mm') : '' }}</h3>
           <span>{{ calendarEvent.title }}</span>
         </div>

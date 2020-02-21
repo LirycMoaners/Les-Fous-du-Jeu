@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{data.title}} - {{data.start | date:'dd/MM/yyyy HH:mm'}}</h1>
+<div mat-dialog-content>
+  <p class="description">{{data.meta.description}}</p>
+  <div class="address">
+    <h2>Adresse :</h2>
+    <div>{{data.meta.street}}</div>
+    <div>{{data.meta.zip}} {{data.meta.city}}</div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="goToLink(data.meta.map)">Voir sur la carte</button>
+</div>

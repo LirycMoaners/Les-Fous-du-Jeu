@@ -1,6 +1,8 @@
 import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
-import { DAYS_OF_WEEK, CalendarEvent } from 'angular-calendar';
+import { DAYS_OF_WEEK, CalendarEvent, CalendarMonthViewDay } from 'angular-calendar';
 import { CalendarEventService } from '../http-services/calendar-event.service';
+import { EventDialogComponent } from './event-dialog/event-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-agenda',
@@ -17,6 +19,7 @@ export class AgendaComponent implements OnInit {
 
   constructor(
     private eRef: ElementRef,
+    private readonly dialog: MatDialog,
     private readonly calendarEventService: CalendarEventService
   ) { }
 
@@ -36,5 +39,15 @@ export class AgendaComponent implements OnInit {
 
   switchAgendaVisibility() {
     this.isAgendaVisible = !this.isAgendaVisible;
+  }
+
+  onClickEvent(event: CalendarEvent) {
+    this.dialog.open(EventDialogComponent, { maxWidth: 500, data: event });
+  }
+
+  onClickDay(day: CalendarMonthViewDay) {
+    if (day.events.length) {
+      this.onClickEvent(day.events[0]);
+    }
   }
 }
