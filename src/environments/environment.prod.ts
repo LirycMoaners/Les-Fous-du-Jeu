@@ -3,7 +3,7 @@ export const environment = {
   apiDomain: 'https://lesfousdujeu.com',
   apiPath: '/api/',
   facebookAPIURL: 'https://graph.facebook.com/v6.0/LesFousDuJeu',
-  facebookAPIKey: 'EAACiSUUrbkgBABay1CSdEbhnjPjsARyxpNOGngXolywrmEG1nCacqyZAVFdqlKZAujGP1q62EnbUkeQHUgB76KG3UAZCkYvMfYR74h3LWVhAp9vftSqexa07Kb3qCZBBltdq6TART4Dp5YxaNZBfEaTgCOev8dkU3I04LTZBmXLfnzdqx9vQtyU5lFnd6BzTGaIucXMuQuDQZDZD',
+  facebookAPIKey: 'EAACiSUUrbkgBAFWDytxyDdDD0CP6zKZAB4U67nwfJpqPz8nqG6K3ZCkmBEcx4jLYDcHmgHkXM4TdkXE0GgKJE4kjIqfTdwWQk1lcPc8PMoPrNOZC6Fk1In9FVbfh17GREZBZAH7jutd9ISgHFwxRzl6TlAQxMh1ZAnJfCSnSI2dwZDZD',
   mailAddress: 'lesfousdujeu@gmail.com',
   facebookURL: 'https://www.facebook.com/pg/LesFousDuJeu'
 };
