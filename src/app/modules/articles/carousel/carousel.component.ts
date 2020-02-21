@@ -1,4 +1,4 @@
-import { Component, OnInit, ApplicationRef } from '@angular/core';
+import { Component, OnInit, ApplicationRef, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { ImageCarouselService } from 'src/app/core/http-services/image-carousel.service';
 import { ImageCarousel } from 'src/app/shared/models/image-carousel.model';
 import { environment } from 'src/environments/environment';
@@ -9,14 +9,16 @@ import { flatMap } from 'rxjs/operators';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent implements OnInit, OnDestroy {
   apiDomain: string;
   imagesCarousel: ImageCarousel[];
   imageCarouselIndex: number;
+  carouselIntervalId: any;
 
   constructor(
     private readonly imageCarouselService: ImageCarouselService,
-    private readonly applicationRef: ApplicationRef
+    private readonly applicationRef: ApplicationRef,
+    private readonly cd: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -31,11 +33,17 @@ export class CarouselComponent implements OnInit {
       })
     ).subscribe(isStable => {
       if (isStable) {
-        setInterval(() => {
+        this.carouselIntervalId = setInterval(() => {
           this.imageCarouselIndex = this.imagesCarousel[this.imageCarouselIndex + 1] ? this.imageCarouselIndex + 1 : 0;
+          this.cd.detectChanges();
         }, 5000);
       }
     });
   }
 
+  ngOnDestroy(): void {
+    if (this.carouselIntervalId) {
+      clearInterval(this.carouselIntervalId);
+    }
+  }
 }
