@@ -4,7 +4,7 @@
   position: fixed;
   top: calc(50% - 300px);
   right: -590px;
-  width: 680px;
+  width: 600px;
   display: flex;
   transition: 1s right;
   z-index: 5;
@@ -17,6 +17,7 @@
     flex: 0 0 80px;
     margin: auto 0;
     padding: 0;
+    margin-left: -90px;
 
     button {
       width: 80px;
@@ -32,7 +33,7 @@
   }
 
   .agenda {
-    margin-left: 10px;
+    margin-left: 20px;
     width: 600px;
   }
 
