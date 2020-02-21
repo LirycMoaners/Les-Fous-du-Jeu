@@ -24,7 +24,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.apiDomain = environment.apiDomain;
 
-    this.imageCarouselService.getImagesCarousel().pipe(
+    const subscription = this.imageCarouselService.getImagesCarousel().pipe(
       flatMap((imagesCarousel: ImageCarousel[]) => {
         this.imagesCarousel = imagesCarousel;
         this.imageCarouselIndex = Math.floor(Math.random() * (this.imagesCarousel.length));
@@ -37,6 +37,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
           this.imageCarouselIndex = this.imagesCarousel[this.imageCarouselIndex + 1] ? this.imageCarouselIndex + 1 : 0;
           this.cd.detectChanges();
         }, 5000);
+        subscription.unsubscribe();
       }
     });
   }
