@@ -2,6 +2,7 @@
 
 :host {
   @media screen and (min-width: $break-medium) {
+    display: block;
     margin-top: -150px;
   }
 
