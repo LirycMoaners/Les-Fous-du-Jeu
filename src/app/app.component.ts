@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver, ComponentRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
+import { LoaderService } from './core/services/loader.service';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +11,14 @@ import { SwUpdate } from '@angular/service-worker';
 })
 export class AppComponent implements OnInit {
   title = 'lesFousDuJeu';
+  loaderComponentRef: ComponentRef<LoaderComponent>;
 
   constructor(
     public router: Router,
-    private swUpdate: SwUpdate
+    private readonly viewContainerRef: ViewContainerRef,
+    private readonly componentFactoryResolver: ComponentFactoryResolver,
+    private readonly swUpdate: SwUpdate,
+    private readonly loaderService: LoaderService
   ) {}
 
   ngOnInit(): void {
@@ -23,5 +29,16 @@ export class AppComponent implements OnInit {
         }
       });
     }
+
+    this.loaderService.isLoaderVisible.subscribe(isLoaderVisible => {
+      setTimeout(() => {
+        if (isLoaderVisible) {
+          const componentFactory = this.componentFactoryResolver.resolveComponentFactory(LoaderComponent);
+          this.loaderComponentRef = this.viewContainerRef.createComponent(componentFactory);
+        } else if (this.loaderComponentRef) {
+          this.loaderComponentRef.destroy();
+        }
+      }, 0);
+    });
   }
 }

@@ -7,6 +7,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ContactDialogComponent } from './components/contact-dialog/contact-dialog.component';
@@ -14,6 +15,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { RouterModule } from '@angular/router';
 import { GoTopComponent } from './components/go-top/go-top.component';
 import { GoTopDirective } from './directives/go-top.directive';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   imports: [
@@ -27,7 +29,8 @@ import { GoTopDirective } from './directives/go-top.directive';
     MatDividerModule,
     MatBadgeModule,
     MatSidenavModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     CommonModule,
@@ -41,6 +44,7 @@ import { GoTopDirective } from './directives/go-top.directive';
     MatBadgeModule,
     MatSidenavModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
     ContactDialogComponent,
     SliderComponent,
     GoTopDirective
@@ -49,10 +53,12 @@ import { GoTopDirective } from './directives/go-top.directive';
     ContactDialogComponent,
     SliderComponent,
     GoTopComponent,
-    GoTopDirective
+    GoTopDirective,
+    LoaderComponent
   ],
   entryComponents: [
-    GoTopComponent
+    GoTopComponent,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

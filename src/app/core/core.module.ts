@@ -20,6 +20,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ContactDialogComponent } from '../shared/components/contact-dialog/contact-dialog.component';
 import { EventDialogComponent } from './agenda/event-dialog/event-dialog.component';
+import { LoaderService } from './services/loader.service';
 
 @NgModule({
   imports: [
@@ -59,7 +60,8 @@ import { EventDialogComponent } from './agenda/event-dialog/event-dialog.compone
     ImageCarouselService,
     ImageGalleryService,
     PartnerService,
-    PrizeService
+    PrizeService,
+    LoaderService
   ],
 })
 export class CoreModule { }
