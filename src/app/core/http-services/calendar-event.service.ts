@@ -12,6 +12,7 @@ export class CalendarEventService {
   constructor(private httpClient: HttpClient) { }
 
   public getCalendarEvents(): Observable<CalendarEvent[]> {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
     return this.httpClient.get(this.url).pipe(
       map((result: any) => {
         const calendarEvents: CalendarEvent[] = [];
@@ -24,7 +25,9 @@ export class CalendarEventService {
             color: {primary: '#9c27b0', secondary: '#b2ff59'},
             allDay,
             meta: {
-              description: item.description,
+              description: item.description.replace(urlRegex, (url: string) => {
+                  return '<a href="' + url + '">' + url + '</a>';
+              }),
               place: item.place.name,
               street: item.place.location?.street,
               city: item.place.location?.city,

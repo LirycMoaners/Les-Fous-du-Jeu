@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>{{data.title}} - {{data.start | date:'dd/MM/yyyy HH:mm'}}</h1>
 <div mat-dialog-content>
-  <p class="description">{{data.meta.description}}</p>
+  <p class="description" [innerHTML]="data.meta.description"></p>
   <div class="address">
     <h2>Adresse :</h2>
     <div>{{data.meta.street}}</div>
