@@ -20,4 +20,9 @@ export class PartnersComponent implements OnInit {
     this.apiDomain = environment.apiDomain;
     this.partnerService.getPartners().subscribe(partners => this.partners = partners);
   }
+
+  navigateToWebsite(url: string) {
+    const win = window.open(url, '_blank');
+    win.focus();
+  }
 }

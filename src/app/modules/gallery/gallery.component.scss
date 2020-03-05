@@ -47,6 +47,10 @@
 
       .contents {
         overflow: auto;
+
+        h3 {
+          cursor: pointer;
+        }
       }
     }
 

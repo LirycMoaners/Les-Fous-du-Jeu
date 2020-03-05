@@ -2,14 +2,14 @@
   <h1 class="mat-display-1">PARTENAIRES</h1>
 
   <div class="partner-list">
-    <mat-card *ngFor="let partner of partners">
+    <mat-card *ngFor="let partner of partners" (click)="navigateToWebsite(partner.website)">
       <mat-card-header>
         <mat-card-title [innerHTML]="partner.title"></mat-card-title>
       </mat-card-header>
       <img mat-card-image [src]="apiDomain + partner.logo">
       <mat-card-content>
         <p [innerHTML]="partner.address"></p>
-        <a [href]="partner.website">Site Web</a>
+        <a [href]="partner.website" target="_blank" (click)="$event.stopPropagation()">Site Web</a>
       </mat-card-content>
     </mat-card>
   </div>
