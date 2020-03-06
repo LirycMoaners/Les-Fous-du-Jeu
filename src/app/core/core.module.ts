@@ -16,11 +16,12 @@ import { SharedModule } from '../shared/shared.module';
 import { AgendaComponent } from './agenda/agenda.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FestivalService } from './http-services/festival.service';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { CalendarModule, DateAdapter, CalendarDateFormatter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ContactDialogComponent } from '../shared/components/contact-dialog/contact-dialog.component';
 import { EventDialogComponent } from './agenda/event-dialog/event-dialog.component';
 import { LoaderService } from './services/loader.service';
+import { CustomDateFormatter } from './services/custom-date-formatter.service';
 
 @NgModule({
   imports: [
@@ -51,6 +52,9 @@ import { LoaderService } from './services/loader.service';
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: LFDJHttpInterceptor, multi: true
+    },
+    {
+      provide: CalendarDateFormatter, useClass: CustomDateFormatter
     },
     ArticleService,
     CalendarEventService,
